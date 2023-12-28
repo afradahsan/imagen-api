@@ -97,27 +97,27 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  Future<String?> getOAuthToken(String firebaseIdToken) async {
-  try {
-    final response = await http.post(
-      Uri.parse(exchangeUrl),
-      body: json.encode({'firebaseToken': firebaseIdToken}),
-      headers: {'Content-Type': 'application/json'},
-    );
+//   Future<String?> getOAuthToken(String firebaseIdToken) async {
+//   try {
+//     final response = await http.post(
+//       Uri.parse(exchangeUrl),
+//       body: json.encode({'firebaseToken': firebaseIdToken}),
+//       headers: {'Content-Type': 'application/json'},
+//     );
 
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> data = json.decode(response.body);
-      final String oauthToken = data['oauthToken']; // Get the OAuth token from the response
-      return oauthToken;
-    } else {
-      print('Failed to exchange tokens: ${response.statusCode}');
-      return null;
-    }
-  } catch (error) {
-    print('Error exchanging tokens: $error');
-    return null;
-  }
-}
+//     if (response.statusCode == 200) {
+//       final Map<String, dynamic> data = json.decode(response.body);
+//       final String oauthToken = data['oauthToken']; // Get the OAuth token from the response
+//       return oauthToken;
+//     } else {
+//       print('Failed to exchange tokens: ${response.statusCode}');
+//       return null;
+//     }
+//   } catch (error) {
+//     print('Error exchanging tokens: $error');
+//     return null;
+//   }
+// }
 
   // Future<void> readCredentials() async {
   // String jsonString = await rootBundle.loadString('assets/google_credentials.json');
